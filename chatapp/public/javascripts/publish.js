@@ -7,7 +7,7 @@ function publish() {
     // 入力されたメッセージを取得
     const message = '';
     // 投稿内容を送信
-
+    
     return false;
 }
 

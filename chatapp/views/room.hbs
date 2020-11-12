@@ -9,11 +9,11 @@
                 <input id="userName" type="hidden" value="">
             </div>
             <div class="room-message">
-                <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
+                <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください" name="memo"></textarea>
             </div>
             <div class="room-submit">
                 <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
-                <input type="button" value="メモ" class="common-button room-memo_button" onclick="memo();">
+                <input type="button" value="メモ" class="common-button room-memo_button" onclick="window.memo();">
             </div>
             <div class="room-thread">
                 <div id="thread"></div>
