@@ -27,7 +27,6 @@ function publish() {
 
     //入力欄を空白にする
     message.value = '';
-
     return false;
 }
 
