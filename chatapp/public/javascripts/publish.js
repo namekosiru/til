@@ -3,7 +3,8 @@
 // 投稿メッセージをサーバに送信する
 function publish() {
     // ユーザ名を取得
-    const userName = '';
+    const userName = $('#userName').val();
+
     // 入力されたメッセージを取得
     const message = document.getElementById('message');
 
@@ -20,7 +21,7 @@ function publish() {
 
     // 投稿内容を送信
     socket.emit('sendPostServer', {
-        name: 'name',
+        name: userName,
         text: message.value,
         time: displayTime
     });
