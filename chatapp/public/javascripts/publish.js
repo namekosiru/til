@@ -21,7 +21,7 @@ function publish() {
 
     // 投稿内容を送信
     socket.emit('sendPostServer', {
-        name: userName,
+        name: userName + "さん",
         text: message.value,
         time: displayTime
     });
@@ -33,5 +33,5 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('sendPostCliant', function (data) {
-    $('#thread').prepend('<p>' + data.name + ' : ' + data.text + "　" + data.time + '</p>');
+    $('#thread').prepend('<p>' + data.name + '：' + data.text + "　" + data.time + '</p>');
 });
