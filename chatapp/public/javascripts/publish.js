@@ -18,7 +18,7 @@ function publish() {
     }
     const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
 
-    if (message) {
+    if (message.value) {
         socket.emit('sendPostServer', {
             name: userName + "さん",
             text: message.value,
