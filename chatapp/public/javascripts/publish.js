@@ -11,7 +11,11 @@ function publish() {
     const month = createdAt.getMonth() + 1;
     const today = createdAt.getDate();
     const hours = createdAt.getHours();
-    const minutes = createdAt.getMinutes();
+    let minutes = createdAt.getMinutes();
+    console.log(String(minutes));
+    if (String(minutes) === 1) {
+        minutes = Number("0" + "minutes")
+    }
     const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
 
     if (message) {
