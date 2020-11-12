@@ -12,9 +12,6 @@ function publish() {
     }
 
     // 投稿内容を送信
-<<<<<<< HEAD
-    
-=======
     socket.emit('sendPostServer', {
         name: 'name',
         text: message.value
@@ -22,8 +19,6 @@ function publish() {
 
     //入力欄を空白にする
     message.value = '';
-
->>>>>>> 848474bc27b0c6eace158f5c457a0b9df4b7554b
     return false;
 }
 
