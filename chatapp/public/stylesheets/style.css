@@ -27,6 +27,10 @@ div {
 /*
  * トップ画面（index.hbs）に関する設定
  */
+.container{
+    background-color: aqua;
+}
+
 .index-user_name {
 
 }
