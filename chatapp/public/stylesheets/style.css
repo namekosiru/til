@@ -165,6 +165,14 @@ h1{
         width: 70%;
         height: 400px;
     }
+
+    .left{
+        text-align: left;
+    }
+
+    .right{
+        text-align: right;
+    }
     
     .room-messeage_set {
         position: absolute; /*←絶対位置*/
