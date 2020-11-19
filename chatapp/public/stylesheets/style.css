@@ -13,8 +13,24 @@ div {
     margin: 20px 0px;
 }
 
+.user{
+    width: 20%;
+    float: left;
+    background-color: red;
+    margin-top:0px;
+}
+
 .row {
-    margin: 20px;
+    margin: 0px 0px;
+    background-color: yellow;
+}
+
+.row-room{
+    margin-top:0px;
+    width:80%;
+    float: left;
+    background-color: blue;
+    padding-top:0px
 }
 
 /*
@@ -29,6 +45,10 @@ div {
  */
 .container{
     background-color: aqua;
+}
+
+.container-room{
+    margin:0px 20px;
 }
 
 .index-user_name {
