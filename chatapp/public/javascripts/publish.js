@@ -25,7 +25,7 @@ function publish() {
             time: displayTime
         });
         message.value = '';
-    }else{
+    } else {
         alert("投稿内容を入力して下さい．");
     }
     return false;
@@ -33,5 +33,15 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('sendPostCliant', function (data) {
-    $('#thread').prepend('<p>' + data.name + '：' + data.text + "　" + data.time + '</p>');
+    switch (prop) {
+        case 'room1':
+            $('#thread1').prepend('<p>' + data.name + '：' + data.text + "　" + data.time + '</p>');
+            break;
+        case 'room':
+            $('#thread').prepend('<p>' + data.name + '：' + data.text + "　" + data.time + '</p>');
+            break;
+        default:
+            console.log('読み取れません')
+            break;
+    }
 });
