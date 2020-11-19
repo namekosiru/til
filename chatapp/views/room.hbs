@@ -1,32 +1,38 @@
-<div class="container-room">
-    <div class="row">
-        <h1>Node Chat チャットルーム</h1>
+<div class="container2">
+        <header>
+    <div class="row2">
+        <h1>Node Chat</h1>
     </div>
-    <div class="user">
-        <ul>
-            <li></li>
-        </ul>
-    </div>
-    <div class="row-room">
-        <form method="post" action="/">
+        <form method="post" action="/"></form>
+        <div class="room-login_exit_set">
             <div class="room-login_user">
                 ログインユーザ：{{userName}}さん
                 <input id="userName" type="hidden" value={{userName}}>
             </div>
-            <div class="room-message">
+            <div class="room-break">
+                <input type="button" value="ブレイクアウト" class="common-button room-break_button" onclick="break();">
+            </div>
+            <div class="room-exit">
+                <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
+            </div>
+            </div>
+            </header>
+            <div class="main">
+                <div class="user">
+                    <div id="aaa">aaaaaa</div>
+                </div>
+            <div class="room-thread">
+                <div id="thread"></div>
+            </div>
+            </div>
+            <div class="room-messeage_set">
+                <div class="room-message">
                 <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください" name="memo"></textarea>
             </div>
             <div class="room-submit">
                 <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
                 <input type="button" value="メモ" class="common-button room-memo_button" onclick="window.memo();">
             </div>
-            <div class="room-thread">
-                <div id="thread"></div>
-            </div>
-            <div class="room-exit">
-                <input type="button" value="退室する" class="common-button room-exit_button" onclick="exit();">
-            </div>
-        </form>
     </div>
 </div>
 
