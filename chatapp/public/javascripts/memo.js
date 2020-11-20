@@ -10,10 +10,10 @@ function memo() {
     if(message.val()){
         switch (prop) {
             case 'room1':
-                $('#thread1').prepend('<p>' + userName.val()+ "さんのメモ：" + message.val() +'</p>');
+                $('#thread1').prepend('<p class="right">' + userName.val()+ "さんのメモ：" + message.val() +'</p>');
                 break;
             case 'room':
-                $('#thread').prepend('<p>' + userName.val()+ "さんのメモ：" + message.val() +'</p>');
+                $('#thread').prepend('<p class="right">' + userName.val()+ "さんのメモ：" + message.val() +'</p>');
                 break;
             default:
                 console.log('読み取れません')

@@ -22,3 +22,10 @@ socket.on('receiveEnterMessageEvent', function (data) {
       break;
   }
 });
+
+// サーバから受信したソケットIDを値としてしまう
+socket.on('onConnect', function (socket_id) {
+  const my_socket_id = socket_id;
+  const new_my_socket_id = JSON.stringify(my_socket_id);
+  $("#socket_id").val(new_my_socket_id);
+});

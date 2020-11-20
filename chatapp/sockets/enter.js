@@ -1,8 +1,12 @@
 'use strict';
 
 module.exports = function (socket) {
-    // 入室メッセージをクライアントに送信する
-    socket.on('sendEnterMessageEvent', function (data) {
+  socket.on('sendEnterMessageEvent', function (data) {
+    // ソケットIDをクライアントに送信する
+      socket.emit("onConnect", {
+        socket_id: socket.id
+      });
+      // 入室メッセージをクライアントに送信する
       socket.broadcast.emit('receiveEnterMessageEvent', data);
     });
 };
