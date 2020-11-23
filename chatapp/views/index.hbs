@@ -1,15 +1,15 @@
 <div class="container1">
     <div class="row">
-        <h1>Node Chat</h1>
+        <h1>Class Chat</h1>
     </div>
-    <div class="row">
+    <div class="row2">
         <form method="post" action="/room">
             <div class="index-user_name">
-                ユーザ名
-                <input type="text" id="userName" name="userName" class="index-user_name_text">
+                {{!-- ユーザ名 --}}
+                <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder=" Username" autocomplete="off">
             </div>
             <div class="index-enter">
-                <input type="button" value="Enter" class="common-button index-enter_button" onclick="enter();">
+                <input type="button" value="Login" class="common-button index-enter_button" onclick="enter();">
             </div>
         </form>
     </div>

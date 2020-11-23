@@ -3,7 +3,7 @@
  */
  body {
     font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
-    background-color: aqua;
+    background-color: #cccccc;
     margin: 0;
 }
 
@@ -17,10 +17,13 @@ div {
 
 h1{
     margin: 0;
+    font-family: "Comic Sans MS";
+    color: #708090;
+    font-size: 60px;
   }
 
 .row {
-    /* margin: 20px; */
+    margin: 20px;
     padding: 50px;
 }
 
@@ -39,13 +42,14 @@ h1{
 } */
 
 .container1 {
-    background-color: red;
+    background-color:#333c5e;
     text-align: center;
     margin: auto;
-    margin-top: 35%;
-    margin-bottom: 65%;
-    width: 400px;
-    height: 300px;
+    margin-top: 25%;
+    margin-bottom: 75%;
+    width: 600px;
+    height: 350px;
+    border-radius: 1.67em;
   }
 
 .index-user_name {
@@ -53,31 +57,40 @@ h1{
 }
 
 .index-user_name_text {
-    width: 200px;
+    width: 300px;
     height: 40px;
     font-size: 100%;
     box-sizing: border-box;
     border: none;
-    outline: none;
-}
+    outline: none; 
+    border: 2px solid #1F2F54;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    background-color:#1F2F54;
+    caret-color: white;
+    color: white;
+} 
 
 .index-enter {
     padding: 10px;
 }
 
 .index-enter_button {
-    width: 200px;
+    width: 300px;
     height: 30px;
     font-size: 100%;
-    background-color: green;
+    background-color: #0a0;
     color: #dcdcdc;
     padding: 0;
-    border: 0;
+    border: none;
+    outline: none; 
     cursor: pointer;
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    color: white;
 }
 
 .index-enter_button:hover {
-    opacity: 0.5;
+    opacity: 0.9;
   }
 
 /*
@@ -97,7 +110,7 @@ h1{
     display: flex;
   }
 
-  .row2 {
+  .row3 {
     /* margin: 20px; */
     padding: 50px;
     width: 70%;
@@ -214,3 +227,11 @@ h1{
     border: 0;
     cursor: pointer;
 }
+
+/* @media screen and (max-width: 375px) {
+    body {
+        font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
+        background-color: red;
+        margin: 0;
+    }    
+  } */
