@@ -5,6 +5,10 @@ function publish() {
     // ユーザ名を取得
     const userName = $('#userName').val();
 
+    // ソケットIDを取得
+    const my_socket_id = $("#socket_id").val();
+    console.log(my_socket_id);
+
     // 入力されたメッセージを取得
     const message = document.getElementById('message');
     const createdAt = new Date();
@@ -22,10 +26,11 @@ function publish() {
         socket.emit('sendPostServer', {
             name: userName + "さん",
             text: message.value,
-            time: displayTime
+            time: displayTime,
+            id: my_socket_id
         });
         message.value = '';
-    }else{
+    } else {
         alert("投稿内容を入力して下さい．");
     }
     return false;
@@ -33,5 +38,25 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('sendPostCliant', function (data) {
-    $('#thread').prepend('<p>' + data.name + '：' + data.text + "　" + data.time + '</p>');
-});
+    // 自分のソケットIDを取得
+    const my_socket_id = $("#socket_id").val();
+    switch (prop) {
+        case 'room1':
+            if(my_socket_id !== data.id){
+                $('#thread1').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+            } else {
+                $('#thread1').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+            };
+            break;
+            case 'room':
+                if(my_socket_id !== data.id){
+                    $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+                } else {
+                    $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+                };
+                break;
+                default:
+                    console.log('読み取れません')
+                    break;
+                }
+            });

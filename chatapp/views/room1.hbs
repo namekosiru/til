@@ -1,0 +1,32 @@
+<p>room1</p>
+<form method="post" action="/">
+    <div class="room-login_user">
+        ログインユーザ：{{userName}}さん
+        <input id="userName" type="hidden" value={{userName}}>
+        <input id="socket_id" type="hidden" value="aaa">
+    </div>
+    <div class="room-message">
+        <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください" name="memo"></textarea>
+    </div>
+    <div class="room-submit">
+        <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
+        <input type="button" value="メモ" class="common-button room-memo_button" onclick="window.memo();">
+    </div>
+    <div class="room-thread">
+        <div id="thread1"></div>
+    </div>
+</form>
+<form action="/room" method="post">
+    <button type="submit">roomへ戻る</button>
+    <input id="userName" type="hidden" name="userName" value={{userName}}>
+</form>
+
+<script type="text/javascript">
+    const prop = "room1"
+</script>
+
+<script src="/javascripts/socket.js"></script>
+<script src="/javascripts/enter.js" type="text/javascript"></script>
+<script src="/javascripts/publish.js" type="text/javascript"></script>
+<script src="/javascripts/memo.js" type="text/javascript"></script>
+<script src="/javascripts/exit.js" type="text/javascript"></script>
