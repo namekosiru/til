@@ -2,8 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
-var user_list = []
-
+var flag = false;
+var user_list = {};
+var count = 0;
 // ログイン画面の表示
 router.get('/', function(request, response, next) {
     response.render('index');
@@ -13,9 +14,13 @@ router.get('/', function(request, response, next) {
 router.post('/room', function(request, response, next) {
     console.log('ユーザ名：' + request.body.userName);
     //userlistの作成
-    user_list.unshift(request.body.userName);
+    count += 1;
+    user_list[count] = request.body.userName;
     console.log(user_list);
-    response.render('room', { userName: request.body.userName,});
+    flag = true;
+    response.render('room', { userName: request.body.userName, user_list:user_list,userid:count,flag:flag});
 });
 
+exports.user_list = user_list;
 module.exports = router;
+

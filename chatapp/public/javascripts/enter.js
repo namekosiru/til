@@ -12,4 +12,3 @@ socket.emit('sendEnterMessageEvent', message);
 socket.on('receiveEnterMessageEvent', function (data) {
     $('#thread').prepend('<p>' + data +'</p>');
 });
-

@@ -3,6 +3,8 @@
  */
 body {
     font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
+    background-color: aqua;
+    margin: 0;
 }
 
 a {
@@ -10,29 +12,16 @@ a {
 }
 
 div {
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
 }
 
-.user{
-    width: 20%;
-    float: left;
-    background-color: red;
-    /* margin-left: 20px; */
-    /* margin-top:0px; */
-}
+h1{
+    margin: 0;
+  }
 
 .row {
-    margin: 0px 20px;
-    background-color: yellow;
-}
-
-.row-room{
-    margin-top:0px;
-    width:80%;
-    float: left;
-    background-color: blue;
-
-    padding-top:0px
+    /* margin: 20px; */
+    padding: 50px;
 }
 
 /*
@@ -45,13 +34,19 @@ div {
 /*
  * トップ画面（index.hbs）に関する設定
  */
-.container{
+/* .container{
     background-color: aqua;
-}
+} */
 
-.container-room{
-    margin:0px 20px;
-}
+.container1 {
+    background-color: red;
+    text-align: center;
+    margin: auto;
+    margin-top: 35%;
+    margin-bottom: 65%;
+    width: 400px;
+    height: 300px;
+  }
 
 .index-user_name {
 
@@ -59,51 +54,165 @@ div {
 
 .index-user_name_text {
     width: 200px;
+    height: 40px;
+    font-size: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
 }
 
 .index-enter {
-
+    padding: 10px;
 }
 
 .index-enter_button {
-
+    width: 200px;
+    height: 30px;
+    font-size: 100%;
+    background-color: green;
+    color: #dcdcdc;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
 }
+
+.index-enter_button:hover {
+    opacity: 0.5;
+  }
 
 /*
  * チャットルーム画面（room.hbs）に関する設定
  */
-.room-login_user {
 
- }
+ .container2 {
+    width: 100%;
+    min-height: 100vh;
+    margin: 30px;
+  }
 
-.room-message {
+  header {
+    width: 100%;
+    height: 150px;
+    background: #35357d;
+    display: flex;
+  }
 
-}
+  .row2 {
+    /* margin: 20px; */
+    padding: 50px;
+    width: 70%;
+    background-color: red;
+  }
+
+  .room-login_exit_set{
+    width: 30%;
+  }
+  
+  .room-login_user {
+      width: 100%;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .room-break {
+        width: 100%;
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    .room-break_button {
+        width: 50%;
+        height: 30px;
+        font-size: 100%;
+        background-color: green;
+        color: #dcdcdc;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+    }
+    
+    .room-exit {
+        width: 100%;
+        padding-top: 20px;
+        text-align: center;
+    }
+    
+    .room-exit_button {
+        width: 50%;
+        height: 30px;
+        font-size: 100%;
+        background-color: green;
+        color: #dcdcdc;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .main{
+        display: flex;
+        width: 100%;
+        height: 700px;
+    }
+
+    .user{
+        background-color: yellow;
+        width: 30%;
+        height: 400px;
+    }
+    
+    .room-thread {
+        background-color: purple;
+        width: 70%;
+        height: 400px;
+    }
+
+    .left{
+        text-align: left;
+    }
+
+    .right{
+        text-align: right;
+    }
+    
+    .room-messeage_set {
+        position: absolute; /*←絶対位置*/
+        bottom: 0; /*下に固定*/
+        width: 100%;
+    }
+    
+    .room-message {
+    }
 
 .room-message_textarea {
-    width: 500px;
+    width: 99.5%;
 }
 
 .room-submit {
-
+    width: 100%;
+    display: flex;
 }
 
 .room-publish_button {
-
+    width: 50%;
+    height: 30px;
+    margin-right: 1%;
+    font-size: 100%;
+    background-color: green;
+    color: #dcdcdc;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
 }
 
 .room-memo_button {
-
+    width: 50%;
+    height: 30px;
+    font-size: 100%;
+    background-color: green;
+    color: #dcdcdc;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
 }
 
-.room-thread {
 
-}
-
-.room-exit {
-
-}
-
-.room-exit_button {
-
-}
