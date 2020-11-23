@@ -1,7 +1,7 @@
 /*
  * 画面全体に関する設定
  */
-body {
+ body {
     font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
     background-color: aqua;
     margin: 0;
@@ -214,5 +214,3 @@ h1{
     border: 0;
     cursor: pointer;
 }
-
-

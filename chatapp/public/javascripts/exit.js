@@ -19,7 +19,6 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit_msg', function (data) {
-<<<<<<< HEAD
     console.log(data[0]);
     $('#thread').prepend('<p>' + data[1] +'</p>');
     $("#user").append('{{#each user_list}}');
