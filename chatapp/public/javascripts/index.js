@@ -9,5 +9,7 @@ function enter() {
         alert("ユーザ名を入力してください．");
         return 1;
     }
+    const roomName = $('#rooms').val();
+    console.log(roomName)
     $('form').submit();
 }

@@ -18,7 +18,12 @@ router.post('/room', function (request, response, next) {
     count += 1;
     user_list[count] = request.body.userName;
     console.log(user_list);
-    response.render('room', { userName: request.body.userName, user_list: user_list, userid: count });
+    response.render('room', {
+        userName: request.body.userName,
+        room: request.body.room,
+        user_list: user_list,
+        userid: count
+    });
 });
 
 module.exports = router;

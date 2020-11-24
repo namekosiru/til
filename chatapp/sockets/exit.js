@@ -9,6 +9,7 @@ module.exports = function (socket) {
         const delete_user = data[2];
         delete user_list[delete_id];
         console.log(data[0]);
-        socket.broadcast.emit("exit_msg", [data[0],data[3]]);
+        socket.leave(data[4]);
+        socket.broadcast.to(data[4]).emit("exit_msg", [data[0], data[3]]);
     });
 };

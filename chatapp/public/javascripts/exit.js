@@ -4,6 +4,10 @@ function exit() {
     //users_listの個々の要素を取り出し
     const users_list = document.getElementsByClassName("users");
     var li = {};
+
+    //roomを取得
+    const room = $('#room').val();
+
     //新しくusersの情報配列を作成
     for (let i = 0; i < users_list.length; i++) {
         li[i + 1] = users_list.item(i).value;
@@ -11,7 +15,7 @@ function exit() {
     const userName = $("#userName").val();
     const userid = $("#userid").val();
     // 退室メッセージイベントを送信する
-    socket.emit("exit", [li, userid, userName, userName + "さんが退出しました."]);
+    socket.emit("exit", [li, userid, userName, userName + "さんが退出しました.", room]);
 
     // 退室
     location.href = '/';
