@@ -19,20 +19,25 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit_msg', function (data) {
-    console.log(data[0]);
     $('#thread').prepend('<p>' + data[1] +'</p>');
-    $("#user").append('{{#each user_list}}');
-    // $("#user").html('{{#each user_list}}"<li><input type="hidden" class="users" value={{this}} name="name">{{this}}</li>"{{/each}}');
-});
-    switch (prop) {
-        case 'room1':
-            $('#thread1').prepend('<p>' + data + '</p>');
-            break;
-        case 'room':
-            $('#thread').prepend('<p>' + data + '</p>');
-            break;
-        default:
-            console.log('読み取れません')
-            break;
-    }
 
+    var user_list = {}
+    for(const keys of Object.keys(data[0])){
+        user_list[keys] = data[0][keys];
+    }
+    console.log(user_list);
+    const value = '{{#each user_list}}<li><input type="hidden" class="users" value={{this}} name="name">{{this}}</li>{{/each}}'
+    var template = Handlebars.compile(value);
+    $("#user").html(template({ user_list: user_list }));
+});
+switch (prop) {
+    case 'room1':
+        $('#thread1').prepend('<p>' + data + '</p>');
+        break;
+    case 'room':
+        $('#thread').prepend('<p>' + data + '</p>');
+        break;
+    default:
+        console.log('読み取れません')
+        break;
+}

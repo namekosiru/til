@@ -8,6 +8,7 @@ module.exports = function (socket) {
         const delete_id = String(data[1]);
         const delete_user = data[2];
         delete user_list[delete_id];
-        socket.broadcast.emit("exit_msg", [user_list,data[3]]);
+        console.log(data[0]);
+        socket.broadcast.emit("exit_msg", [data[0],data[3]]);
     });
 };
