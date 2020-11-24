@@ -5,13 +5,13 @@ function exit() {
     const users_list = document.getElementsByClassName("users");
     var li = {};
     //新しくusersの情報配列を作成
-    for(let i=0;i<users_list.length;i++){
-        li[i+1] = users_list.item(i).value;
+    for (let i = 0; i < users_list.length; i++) {
+        li[i + 1] = users_list.item(i).value;
     }
     const userName = $("#userName").val();
     const userid = $("#userid").val();
     // 退室メッセージイベントを送信する
-    socket.emit("exit", [li,userid,userName,userName+"さんが退出しました."]);
+    socket.emit("exit", [li, userid, userName, userName + "さんが退出しました."]);
 
     // 退室
     location.href = '/';
@@ -19,25 +19,16 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit_msg', function (data) {
-    $('#thread').prepend('<p>' + data[1] +'</p>');
 
     var user_list = {}
-    for(const keys of Object.keys(data[0])){
+    for (const keys of Object.keys(data[0])) {
         user_list[keys] = data[0][keys];
     }
     console.log(user_list);
     const value = '{{#each user_list}}<li><input type="hidden" class="users" value={{this}} name="name">{{this}}</li>{{/each}}'
     var template = Handlebars.compile(value);
     $("#user").html(template({ user_list: user_list }));
+    $('#thread').prepend('<p>' + data[1] + '</p>');
 });
-switch (prop) {
-    case 'room1':
-        $('#thread1').prepend('<p>' + data + '</p>');
-        break;
-    case 'room':
-        $('#thread').prepend('<p>' + data + '</p>');
-        break;
-    default:
-        console.log('読み取れません')
-        break;
-}
+
+

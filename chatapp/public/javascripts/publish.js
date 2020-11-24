@@ -40,23 +40,10 @@ function publish() {
 socket.on('sendPostCliant', function (data) {
     // 自分のソケットIDを取得
     const my_socket_id = $("#socket_id").val();
-    switch (prop) {
-        case 'room1':
-            if(my_socket_id !== data.id){
-                $('#thread1').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-            } else {
-                $('#thread1').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-            };
-            break;
-            case 'room':
-                if(my_socket_id !== data.id){
-                    $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-                } else {
-                    $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-                };
-                break;
-                default:
-                    console.log('読み取れません')
-                    break;
-                }
-            });
+ 
+    if(my_socket_id !== data.id){
+        $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+    } else {
+        $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+    };
+});

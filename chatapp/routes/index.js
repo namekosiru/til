@@ -18,12 +18,7 @@ router.post('/room', function (request, response, next) {
     count += 1;
     user_list[count] = request.body.userName;
     console.log(user_list);
-    response.render('room', { userName: request.body.userName, user_list:user_list,userid:count});
-});
-
-router.post('/room/room1', function (request, response, next) {
-    console.log(request.body.userName + 'がroom1に移動しました。');
-    response.render('room1', { userName: request.body.userName });
+    response.render('room', { userName: request.body.userName, user_list: user_list, userid: count });
 });
 
 module.exports = router;
