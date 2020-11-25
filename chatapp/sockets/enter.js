@@ -8,6 +8,7 @@ module.exports = function (socket) {
       });
       // 入室メッセージをクライアントに送信する
       socket.broadcast.emit('receiveEnterMessageEvent', data);
+      // io.sockets.emit('receiveEnterMessageEvent', data)
     });
     // socket.on("username",function(data){
     //   user_list.unshift(data);

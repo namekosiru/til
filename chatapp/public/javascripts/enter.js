@@ -14,8 +14,9 @@ socket.on('receiveEnterMessageEvent', function (data) {
       $('#thread1').prepend('<p>' + data + "さんが入室しました" + '</p>');
       break;
     case 'room':
+      console.log(data);
       $('#thread').prepend('<p>' + data + "さんが入室しました" + '</p>');
-      $('#user').prepend('<li>' + data + '</li>'); // <- サーバからきたuserNameを一覧に
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data}" name="name">${data}</li>`); // <- サーバからきたuserNameを一覧に
       console.log('roomです')
       break;
     default:

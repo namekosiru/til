@@ -3,12 +3,12 @@
 module.exports = function (socket) {
     // 退室メッセージをクライアントに送信する
     socket.on('exit', function (data) {
-        console.log(data[0]);
-        var user_list = data[0];
-        const delete_id = String(data[1]);
-        const delete_user = data[2];
+        console.log(data.userlist);
+        var user_list = data.userlist;
+        const delete_id = String(data.userid);
+        const delete_user = data.userName;
         delete user_list[delete_id];
-        console.log(data[0]);
-        socket.broadcast.emit("exit_msg", [data[0],data[3]]);
+        console.log(user_list);
+        socket.broadcast.emit("exit_msg", {userlist:user_list,msg:data.msg});
     });
 };
