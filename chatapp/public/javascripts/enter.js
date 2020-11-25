@@ -10,13 +10,26 @@ const room = $('#room').val();
 //roomに入室
 socket.emit('joinRoom', room);
 
+//日時取得
+const createdAt = new Date();
+const month = createdAt.getMonth() + 1;
+const today = createdAt.getDate();
+const hours = createdAt.getHours();
+let minutes = createdAt.getMinutes();
+if (String(minutes) === 1) {
+  minutes = Number("0" + "minutes")
+}
+
+//表示させる時刻
+const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
+
 // 入室メッセージイベントを送信する
 // const message = userName + 'さんが入室しました．';
 const message = userName;
 socket.emit('sendEnterMessageEvent', [message, room]);
 // サーバから受信した入室メッセージを画面上に表示する
 socket.on('receiveEnterMessageEvent', function (data) {
-  $('#thread').prepend('<p>' + data + "さんが入室しました" + '</p>');
+  $('#thread').prepend('<p>' + data + "さんが入室しました" + " " + displayTime + '</p>');
   $('#user').prepend('<li>' + data + '</li>'); // <- サーバからきたuserNameを一覧に
 });
 

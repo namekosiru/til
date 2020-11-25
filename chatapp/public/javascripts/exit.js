@@ -24,6 +24,19 @@ function exit() {
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit_msg', function (data) {
 
+    //日時取得
+    const createdAt = new Date();
+    const month = createdAt.getMonth() + 1;
+    const today = createdAt.getDate();
+    const hours = createdAt.getHours();
+    let minutes = createdAt.getMinutes();
+    if (String(minutes) === 1) {
+        minutes = Number("0" + "minutes")
+    }
+
+    //表示させる時刻
+    const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
+
     var user_list = {}
     for (const keys of Object.keys(data[0])) {
         user_list[keys] = data[0][keys];
@@ -32,7 +45,7 @@ socket.on('exit_msg', function (data) {
     const value = '{{#each user_list}}<li><input type="hidden" class="users" value={{this}} name="name">{{this}}</li>{{/each}}'
     var template = Handlebars.compile(value);
     $("#user").html(template({ user_list: user_list }));
-    $('#thread').prepend('<p>' + data[1] + '</p>');
+    $('#thread').prepend('<p>' + data[1] + " " + displayTime + '</p>');
 });
 
 
