@@ -22,7 +22,11 @@
             <div id="userlist">
                 <ul id="user">
                     {{#each user_list}}
-                    <li><input type="hidden" class="users" value={{this}} name="name">{{this}} {{@key}}</li>
+                    <li>
+                        <input type="hidden" class="users" value={{this}} name="name">
+                        <input type="hidden" class="rooms" value={{@key}} name="key">
+                        {{this}} {{@key}}
+                    </li>
                     {{/each}}
                 </ul>
             </div>

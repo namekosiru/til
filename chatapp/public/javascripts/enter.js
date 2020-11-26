@@ -33,12 +33,12 @@ socket.on('receiveEnterMessageEvent', function (data) {
   switch (prop) {
     case 'room1':
       $('#thread1').prepend('<p>' + data[0] + "さんが" + room + "に入室しました" + '</p>');
-      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[0]}</li>`);
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${room} ${data[0]}</li>`);
       break;
     case 'room':
       // console.log(data);
       // $('#thread').prepend('<p>' + data[0] + "さんが入室しました" + '</p>');
-      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[0]}</li>`); // <- サーバからきたuserNameを一覧に
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${room} ${data[0]}</li>`); // <- サーバからきたuserNameを一覧に
       console.log('roomです')
       break;
     default:
