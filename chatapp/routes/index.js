@@ -13,9 +13,7 @@ router.get('/delete', function (request, response, next) {
     user_list = user_list.filter(function(value){
         return value !== name;
     })
-    console.log("**************");
-    console.log(user_list);
-    response.render('index');
+    response.redirect('/');
 });
 
 // チャット画面の表示
