@@ -17,7 +17,7 @@ function exit() {
     const userName = $("#userName").val();
     const userid = $("#userid").val();
     // 退室メッセージイベントを送信する
-    socket.emit("exit", {userlist:li,userid:userid,userName:userName,msg:userName+"さんが退出しました."});
+    socket.emit("exit", {userlist:li,userid:userid,userName:userName,msg:userName+"が退出しました."});
 
     // 退室
     // location.href = '/';
@@ -26,7 +26,7 @@ function exit() {
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit_msg', function (data) {
 
-    $('#thread').prepend('<p>' + data.msg +'</p>');
+    $('#thread').prepend('<p class="enter_message">' + data.msg +'</p>');
 
     var user_list = {}
     console.log(data.userlist);

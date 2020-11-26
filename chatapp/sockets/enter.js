@@ -12,6 +12,5 @@ module.exports = function (socket) {
       });
       // 入室メッセージをクライアントに送信する
       socket.broadcast.emit('receiveEnterMessageEvent', data);
-
     });
 };
