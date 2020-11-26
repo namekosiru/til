@@ -32,7 +32,7 @@ socket.on('receiveEnterMessageEvent', function (data) {
   console.log(data);
   switch (prop) {
     case 'room1':
-      $('#thread1').prepend('<p>' + data[0] + "さんが入室しました" + '</p>');
+      $('#thread1').prepend('<p>' + data[0] + "さんが" + room + "に入室しました" + '</p>');
       $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[0]}</li>`);
       break;
     case 'room':
@@ -45,7 +45,7 @@ socket.on('receiveEnterMessageEvent', function (data) {
       console.log('読み取れません')
       break;
   }
-  $('#thread').prepend('<p>' + data[0] + "さんが入室しました" + " " + displayTime + '</p>');
+  $('#thread').prepend('<p class="enter_message">' + data[0] + "さんが" + room + "に入室しました" + " " + displayTime + '</p>');
 });
 
 // サーバから受信したソケットIDを値としてしまう
