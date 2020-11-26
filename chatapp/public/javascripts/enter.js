@@ -5,8 +5,8 @@
 const userName = $('#userName').val();
 
 //入室するRoomを取得
-const room = $('#room').val();
-
+let room = $('#room').val();
+console.log(room);
 //roomに入室
 socket.emit('joinRoom', room);
 
@@ -32,20 +32,20 @@ socket.on('receiveEnterMessageEvent', function (data) {
   console.log(data);
   switch (prop) {
     case 'room1':
-      $('#thread1').prepend('<p>' + data[0] + "さんが" + room + "に入室しました" + '</p>');
-      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${room} ${data[0]}</li>`);
+      $('#thread1').prepend('<p>' + data[0] + "さんが" + data[1] + "に入室しました" + '</p>');
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[1]} ${data[0]}</li>`);
       break;
     case 'room':
       // console.log(data);
       // $('#thread').prepend('<p>' + data[0] + "さんが入室しました" + '</p>');
-      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${room} ${data[0]}</li>`); // <- サーバからきたuserNameを一覧に
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[1]} ${data[0]}</li>`); // <- サーバからきたuserNameを一覧に
       console.log('roomです')
       break;
     default:
       console.log('読み取れません')
       break;
   }
-  $('#thread').prepend('<p class="enter_message">' + data[0] + "さんが" + room + "に入室しました" + " " + displayTime + '</p>');
+  $('#thread').prepend('<p class="enter_message">' + data[0] + "さんが" + data[1] + "に入室しました" + " " + displayTime + '</p>');
 });
 
 // サーバから受信したソケットIDを値としてしまう
