@@ -27,8 +27,10 @@ socket.on('exit_msg', function (data) {
     $('#thread').prepend('<p>' + data.msg +'</p>');
 
     var user_list = []
-    for(let i=0;i<data.user_list.length;i++){
-        user_list.push(data.user_list[i]);
+    console.log(data.userlist);
+    for(let i=0;i<data.userlist.length;i++){
+        user_list.push(data.userlist[i]);
+    }
     //日時取得
     const createdAt = new Date();
     const month = createdAt.getMonth() + 1;
@@ -41,12 +43,10 @@ socket.on('exit_msg', function (data) {
 
     //表示させる時刻
     const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
-    console.log(user_list);
     const value = '{{#each user_list}}<li><input type="hidden" class="users" value={{this}} name="name">{{this}}</li>{{/each}}'
     var template = Handlebars.compile(value);
     $("#user").html(template({ user_list: user_list }));
     module.exports = user_list;
-    $('#thread').prepend('<p>' + data[1] + " " + displayTime + '</p>');
+    $('#thread').prepend('<p>' + data.msg + " " + displayTime + '</p>');
 });
-
 

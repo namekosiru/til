@@ -29,21 +29,23 @@ const message = userName;
 socket.emit('sendEnterMessageEvent', [message, room]);
 // サーバから受信した入室メッセージを画面上に表示する
 socket.on('receiveEnterMessageEvent', function (data) {
+  console.log(data);
   switch (prop) {
     case 'room1':
-      $('#thread1').prepend('<p>' + data + "さんが入室しました" + '</p>');
+      $('#thread1').prepend('<p>' + data[0] + "さんが入室しました" + '</p>');
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[0]}</li>`);
       break;
     case 'room':
       // console.log(data);
-      $('#thread').prepend('<p>' + data + "さんが入室しました" + '</p>');
-      $('#user').prepend(`<li><input type="hidden" class="users" value="${data}" name="name">${data}</li>`); // <- サーバからきたuserNameを一覧に
+      // $('#thread').prepend('<p>' + data[0] + "さんが入室しました" + '</p>');
+      $('#user').prepend(`<li><input type="hidden" class="users" value="${data[0]}" name="name">${data[0]}</li>`); // <- サーバからきたuserNameを一覧に
       console.log('roomです')
       break;
     default:
       console.log('読み取れません')
       break;
   }
-  $('#thread').prepend('<p>' + data + "さんが入室しました" + " " + displayTime + '</p>');
+  $('#thread').prepend('<p>' + data[0] + "さんが入室しました" + " " + displayTime + '</p>');
 });
 
 // サーバから受信したソケットIDを値としてしまう

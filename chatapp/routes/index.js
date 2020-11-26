@@ -9,10 +9,12 @@ router.get('/', function (request, response, next) {
 });
 
 router.get('/delete', function (request, response, next) {
-    let name = request.body.username;
+    let name = request.query["username"];
+    console.log(response.query["username"]);
     user_list = user_list.filter(function(value){
         return value !== name;
     })
+    console.log("**************");
     console.log(user_list);
     response.render('index');
 });
