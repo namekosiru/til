@@ -10,8 +10,8 @@ module.exports = function (socket) {
         user_list = user_list.filter(function(value){
             return value !== delete_user;
         })
-        console.log("###########");
         console.log(user_list);
+        console.log("###########");
         socket.broadcast.emit("exit_msg", {userlist:user_list,msg:data.msg});
 
     });

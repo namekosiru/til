@@ -9,8 +9,7 @@ router.get('/', function (request, response, next) {
 });
 
 router.get('/delete', function (request, response, next) {
-    let name = request.query["username"];
-    console.log(response.query["username"]);
+    let name = request.query.username;
     user_list = user_list.filter(function(value){
         return value !== name;
     })
@@ -21,10 +20,8 @@ router.get('/delete', function (request, response, next) {
 
 // チャット画面の表示
 router.post('/room', function (request, response, next) {
-    // console.log('ユーザ名：' + request.body.userName);
-    // console.log(user_list);
+    console.log('ユーザ名：' + request.body.userName);
     user_list.push(request.body.userName);
-    // console.log(user_list);
     response.render('room', { userName: request.body.userName, user_list:user_list});
 });
 
