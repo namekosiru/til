@@ -23,7 +23,7 @@ function memo() {
     const message = $("#message");
 
     if (message.val()) {
-        $('#thread').prepend('<p class="right">' + userName.val() + "さんのメモ：" + message.val() + " " + displayTime + '</p>');
+        $('#thread').prepend('<p class="right_name">' + userName.val() + + "さんのメモ" + '</p>' + '<div class="right">' + '<p class="right_text">' + message.val() + "</p>" + "</br>" + '<p class="right_time">' + displayTime + '</p>' + '</div>');
         flag.value = "";
     } else {
         alert("投稿内容を入力して下さい．");

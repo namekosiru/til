@@ -49,8 +49,8 @@ socket.on('sendPostCliant', function (data) {
     const my_socket_id = $("#socket_id").val();
 
     if (my_socket_id !== data.id) {
-        $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+        $('#thread').prepend('<p class="left_name">' + data.name + '</p>' + '<div class="left">' + '<p class="left_text">' + data.text + "</p>" + "</br>" + '<p class="left_time">' + data.time + '</p>' + '</div>');
     } else {
-        $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+        $('#thread').prepend('<p class="right_name">' + data.name + '</p>' + '<div class="right">' + '<p class="right_text">' + data.text + "</p>" + "</br>" + '<p class="right_time">' + data.time + '</p>' + '</div>');
     };
 });

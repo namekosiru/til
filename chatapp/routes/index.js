@@ -20,7 +20,11 @@ router.get('/delete', function (request, response, next) {
 router.post('/room', function (request, response, next) {
     console.log('ユーザ名：' + request.body.userName);
     user_list.push(request.body.userName);
-    response.render('room', { userName: request.body.userName, user_list:user_list});
+    response.render('room', {
+        userName: request.body.userName,
+        room: request.body.room,
+        user_list: user_list,
+    });
 });
 
 router.post('/room/room1', function (request, response, next) {

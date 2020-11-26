@@ -49,4 +49,3 @@ socket.on('exit_msg', function (data) {
     module.exports = user_list;
     $('#thread').prepend('<p>' + data.msg + " " + displayTime + '</p>');
 });
-
