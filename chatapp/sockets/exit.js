@@ -7,8 +7,12 @@ module.exports = function (socket) {
         var user_list = data.userlist;
         const delete_id = String(data.userid);
         const delete_user = data.userName;
-        delete user_list[delete_id];
+
+        user_list = user_list.filter(function(value){
+            return value !== delete_user;
+        })
         console.log(user_list);
         socket.broadcast.emit("exit_msg", {userlist:user_list,msg:data.msg});
+
     });
 };

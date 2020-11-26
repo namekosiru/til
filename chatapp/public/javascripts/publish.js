@@ -9,17 +9,23 @@ function publish() {
     const my_socket_id = $("#socket_id").val();
     console.log(my_socket_id);
 
+    //送信するRoomを取得
+    const room = $('#room').val();
+
     // 入力されたメッセージを取得
     const message = document.getElementById('message');
+
+    //日時取得
     const createdAt = new Date();
     const month = createdAt.getMonth() + 1;
     const today = createdAt.getDate();
     const hours = createdAt.getHours();
     let minutes = createdAt.getMinutes();
-    console.log(String(minutes));
     if (String(minutes) === 1) {
         minutes = Number("0" + "minutes")
     }
+
+    //表示させる時刻
     const displayTime = (month + "/" + today + " " + hours + ":" + minutes);
 
     if (message.value) {
@@ -27,7 +33,8 @@ function publish() {
             name: userName + "さん",
             text: message.value,
             time: displayTime,
-            id: my_socket_id
+            id: my_socket_id,
+            room: room
         });
         message.value = '';
     } else {
@@ -40,23 +47,10 @@ function publish() {
 socket.on('sendPostCliant', function (data) {
     // 自分のソケットIDを取得
     const my_socket_id = $("#socket_id").val();
-    switch (prop) {
-        case 'room1':
-            if(my_socket_id !== data.id){
-                $('#thread1').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-            } else {
-                $('#thread1').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-            };
-            break;
-            case 'room':
-                if(my_socket_id !== data.id){
-                    $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-                } else {
-                    $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
-                };
-                break;
-                default:
-                    console.log('読み取れません')
-                    break;
-                }
-            });
+
+    if (my_socket_id !== data.id) {
+        $('#thread').prepend('<p class="left">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+    } else {
+        $('#thread').prepend('<p class="right">' + data.name + '：' + data.text + "　" + data.time + '</p>');
+    };
+});

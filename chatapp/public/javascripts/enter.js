@@ -3,10 +3,17 @@
 // 入室メッセージをサーバに送信する
 // 入力されたユーザ名を取得する
 const userName = $('#userName').val();
+
+//入室するRoomを取得
+const room = $('#room').val();
+
+//roomに入室
+socket.emit('joinRoom', room);
+
 // 入室メッセージイベントを送信する
 // const message = userName + 'さんが入室しました．';
 const message = userName;
-socket.emit('sendEnterMessageEvent', message);
+socket.emit('sendEnterMessageEvent', [message, room]);
 // サーバから受信した入室メッセージを画面上に表示する
 socket.on('receiveEnterMessageEvent', function (data) {
   switch (prop) {
@@ -14,7 +21,7 @@ socket.on('receiveEnterMessageEvent', function (data) {
       $('#thread1').prepend('<p>' + data + "さんが入室しました" + '</p>');
       break;
     case 'room':
-      console.log(data);
+      // console.log(data);
       $('#thread').prepend('<p>' + data + "さんが入室しました" + '</p>');
       $('#user').prepend(`<li><input type="hidden" class="users" value="${data}" name="name">${data}</li>`); // <- サーバからきたuserNameを一覧に
       console.log('roomです')
