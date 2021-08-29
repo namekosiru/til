@@ -1,2 +1,3 @@
 # react-codesandbox
-Created with CodeSandbox
+I create simple web pages with react, typescripts and shows them via codesandboxes
+
