@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 
 {% block header %}
-<div class="alert alert-secondary" role="alert">
-    list
+<div class="bg-secondary">
+    <h1 class="ps-2 display-3 text-white">TodoList</h1>
+    <p class="ps-3 text-white">todolistを作成したタスク管理をしよう</p>
 </div>
 {% endblock header %}
 
 {% block content %}
-{% for item in object_list %}
-<div class="alert alert-success" role="alert">
-    {{item.title}}
+<div class="container">
+    <a href="{% url 'create' %}" class="btn btn-primary btn-md mb-5" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
+    {% for item in object_list %}
+    <div class="alert alert-{{ item.priority }}" role="alert">
+        <h2 class="mb-2">
+            {{item.title}}
+            期日{{ item.duedata }}
+        </h2>
+        <p class="mb-0">
+            <a href="{% url 'update' item.pk %}" class="btn btn-primary btn-md" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
+            <a href="{% url 'delete' item.pk %}" class="btn btn-danger btn-md" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
+            <a href="{% url 'detail' item.pk %}" class="btn btn-success btn-md" tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
+        </p>
+    </div>
+    {% endfor %}
 </div>
-<div class="alert alert-success" role="alert">
-    {{item.memo}}
-</div>
-{% endfor %}
 {% endblock content %}
