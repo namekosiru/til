@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="text-center">
+    <div class="w-50 align-items-center mx-auto mt-5">
+        {{ error }}
+        <form method='POST'>{% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">サインインする</h1>
+            <label for="inputEmail" class="visually-hidden">ユーザーネーム</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="ユーザー" name='username' required autofocus>
+            <label for="inputPassword" class="visually-hidden">パスワード</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" name='password' required>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">サインイン</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+        </form>
+    </div>
+</body>
+{% endblock content %}
