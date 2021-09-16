@@ -125,6 +125,14 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STATIC_URL = '/sta/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [str(BASE_DIR / 'static')]
+
 MEDIA_ROOT = BASE_DIR / 'media'
 
 MEDIA_URL = 'medi/'
+
+LOGIN_URL = 'login'
