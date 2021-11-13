@@ -1,0 +1,27 @@
+<div class="container1">
+    <div class="row">
+        <h1>Class Chat</h1>
+    </div>
+    <div class="row2">
+        <form method="post" action="/room">
+            <div class="index-user_name">
+                {{!-- ユーザ名 --}}
+                <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder=" Username"
+                    autocomplete="off">
+            </div>
+            <div>
+                <select id="rooms" name="room">
+                    <option value="Room1">Room1</option>
+                    <option value="Room2">Room2</option>
+                    <option value="Room3">Room3</option>
+                    <option value="Room4">Room4</option>
+                    <option value="Room5">Room5</option>
+                </select>
+            </div>
+            <div class="index-enter">
+                <input type="button" value="Login" class="common-button index-enter_button" onclick="enter();">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/javascripts/index.js"></script>

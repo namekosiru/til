@@ -1,0 +1,368 @@
+/*
+ * 画面全体に関する設定
+ */
+ body {
+    font: 14px "Lucida Grande", Meiryo, Helvetica, Arial, sans-serif;
+    background-color: #cccccc;
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+    font-family: "Comic Sans MS";
+    color: #708090;
+    font-size: 60px;
+  }
+
+.row {
+    margin: 20px;
+    padding: 50px;
+}
+
+/*
+ * ボタンの共通設定
+ */
+.common-button {
+    font-size: 100%;
+    border: none;
+    outline: none; 
+    cursor: pointer;
+    background-color: #0a0;
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    color: #dcdcdc;
+}
+
+/*
+ * トップ画面（index.hbs）に関する設定
+ */
+
+.container1 {
+    background-color:#333c5e;
+    text-align: center;
+    margin: auto;
+    margin-top: 25%;
+    margin-bottom: 75%;
+    width: 600px;
+    height: 350px;
+    border-radius: 1.67em;
+  }
+
+.index-user_name {
+
+}
+
+.index-user_name_text {
+    width: 300px;
+    height: 40px;
+    font-size: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none; 
+    border: 2px solid #1F2F54;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    background-color:#1F2F54;
+    caret-color: #dcdcdc;
+    color:#dcdcdc;
+} 
+
+#rooms {
+    width: 300px;
+    height: 30px;
+    font-size: 100%;
+    background-color: #1F2F54;
+    color: #dcdcdc;
+    padding: 0;
+    border: none;
+    outline: none; 
+    cursor: pointer;
+    border: 2px solid #1F2F54;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    color: #dcdcdc;
+    margin: 10px;
+  }
+
+.index-enter {
+    padding: 10px;
+}
+
+.index-enter_button {
+    width: 300px;
+    height: 30px;
+}
+
+.index-enter_button:hover {
+    opacity: 0.9;
+  }
+
+/*
+ * チャットルーム画面（room.hbs）に関する設定
+ */
+
+ .container2 {
+    width: 100%;
+    /* min-height: 100vh; */
+    /* margin: 30px; */
+    height: 100%;
+  }
+
+  header {
+    width: 100%;
+    height: 20%;
+    background: #35357d;
+    display: flex;
+  }
+
+  .row3 {
+    /* margin: 20px; */
+    padding: 30px;
+    width: 50%;
+    /* padding: 50px;
+    width: 70%;
+    background-color: red; */
+  }
+
+  .room-title{
+    padding-left: 30px;
+  }
+
+  .room-login_exit_set{
+    width: 50%;
+  }
+  
+  .room-login_user {
+      width: 100%;
+      padding-top: 30px;
+      text-align: center;
+      color: #dcdcdc;
+    }
+    
+    .room-exit {
+        width: 100%;
+        padding-top: 30px;
+        text-align: center;
+    }
+    
+    .room-exit_button {
+        width: 50%;
+        height: 30px;
+    }
+
+    .main{
+        display: flex;
+        width: 100%;
+        min-height: 430px;
+        height: 60%;
+    }
+
+    .login_user{
+        background-color:#1F2F54;
+        color:#dcdcdc;
+        text-align: center;
+        width: 100%;
+        height: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+  
+    #userlist{
+        background-color:gray;
+        width: 25%;
+    }
+    
+    .room-thread {
+        background-color: #cccccc;
+        width: 75%;
+        margin-bottom: 10px;
+    }
+
+    .enter_message{
+        background-color: coral;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 70%;
+        margin: 10px auto;
+        border: none;
+        outline: none; 
+        border: 2px solid orange;  /* 枠線 */
+        border-radius: 0.67em;   /* 角丸 */
+    }
+
+    .left_name{
+        text-align: left;
+        margin: 2px;
+    }
+
+    .left_text{
+        margin: 2px;
+    }
+
+    .left_time{
+        margin: 2px;
+        text-align: right;
+    }
+
+    .left{
+        text-align: left;
+        background-color: white;
+        width: 50%;
+        margin-right: auto;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border: 2px solid #dcdcdc;  /* 枠線 */
+        border-radius: 0.67em;   /* 角丸 */
+    }
+
+    .right_name{
+        text-align: right;
+        margin: 2px;
+    }
+    
+    .right_text{
+        margin: 2px;
+        text-align: left;
+    }
+
+    .right_time{
+        text-align: right;
+        margin: 2px;
+    }
+
+    .right{
+        text-align: right;
+        background-color: #35357d;
+        color: #dcdcdc;
+        width: 50%;
+        margin-left: auto;
+        padding: 10px;
+        border: none;
+        outline: none; 
+        border: 2px solid #1F2F54;  /* 枠線 */
+        border-radius: 0.67em;   /* 角丸 */
+    }
+    
+    .room-messeage_set {
+      background-color: #35357d;
+      height: 20%;
+      text-align: center;
+    }
+    
+    .room-message {
+    }
+
+    .room-message_textarea {
+        width: 95%;
+        font-size: 100%;
+        box-sizing: border-box;
+        border: none;
+        outline: none; 
+        border: 2px solid #1F2F54;  /* 枠線 */
+        border-radius: 0.67em;   /* 角丸 */
+        background-color:#1F2F54;
+        caret-color:#dcdcdc;
+        color: #dcdcdc;
+        margin: 10px;
+        margin-top: 20px;
+}
+
+.room-submit {
+    width: 95%;
+    display: flex;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.room-publish_button {
+    width: 49.5%;
+    height: 30px;
+    margin-right: 1%;
+    margin-bottom: 20px;
+}
+
+.room-memo_button {
+    width: 49.5%;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+/* レスポンシブ対応 */
+
+@media screen and (max-width: 375px) {
+    body {
+        background-color: #333c5e;
+    }
+    
+    .row {
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    .container1 {
+        margin-top: 35%;
+        margin-bottom: 65%;
+        width: 100%;
+        height: 100%;
+      }
+
+      header {
+        height: 15%;
+        display: block;
+      }
+
+      .room-login_exit_set{
+        width: 100%;
+      }
+      
+      .room-login_user {
+          padding-top: 5px;
+          text-align: center;
+          color: #dcdcdc;
+        }
+        
+        .room-exit {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        
+        .room-exit_button {
+            width: 50%;
+            height: 30px;
+        }
+
+    .main {
+        display: block;
+    }
+  
+    #userlist{
+        min-height: 30px;
+        height: 25%;
+        width: 100%;
+    }
+    
+    .room-thread  {
+        min-height: 250px;
+        height: 75%;
+        width: 100%;
+    }
+
+    .room-submit {
+        display: block;
+        margin-left: 0;
+    }
+
+    .room-publish_button {
+        width: 95%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    
+    .room-memo_button {
+        width: 95%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    }

@@ -1,0 +1,53 @@
+<div class="container2">
+    <header>
+        <div class="row3">
+            <h1>{{room}}</h1>
+        </div>
+        <form method="post" action="/"></form>
+        <div class="room-login_exit_set">
+            <div class="room-login_user">
+                ログインユーザ：{{userName}}さん
+                <input id="room" type="hidden" value={{room}}>
+                <input id="socket_id" type="hidden" value="aaa">
+            </div>
+            <div class="room-exit">
+                <form method="get" action="/delete">
+                    <input id="userName" type="hidden" value={{userName}} name="username">
+                    <input type="submit" value="退室する" class="common-button room-exit_button" onclick="exit();">
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+            <div id="userlist">
+                <ul id="user">
+                    {{#each user_list}}
+                    <li>
+                        <input type="hidden" class="users" value={{this}} name="name">
+                        <input type="hidden" class="rooms" value={{@key}} name="key">
+                        {{this}} {{@key}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        <div class="room-thread">
+            <div id="thread"></div>
+        </div>
+    </div>
+    <div class="room-messeage_set">
+        <div class="room-message">
+            <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"
+                name="memo"></textarea>
+        </div>
+        <div class="room-submit">
+            <input type="button" value="投稿" class="common-button room-publish_button" onclick="publish();">
+            <input type="button" value="メモ" class="common-button room-memo_button" onclick="window.memo();">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">const prop = "room"</script>
+<script src="/javascripts/socket.js"></script>
+<script src="/javascripts/enter.js"></script>
+<script src="/javascripts/publish.js"></script>
+<script src="/javascripts/memo.js"></script>
+<script src="/javascripts/exit.js"></script>
